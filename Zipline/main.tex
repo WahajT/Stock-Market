@@ -1,0 +1,44 @@
+\documentclass[12pt,a4paper]{article}
+%-----------------------PACKAGES-----------------------%
+\usepackage[top=1in,bottom=1in,left=0.5in,right=0.5in]{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{adjustbox}
+\usepackage{titlesec}
+\usepackage{svg}
+\usepackage{lettrine}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{hyperref}
+
+\begin{document}
+\section*{Zipline}
+In Chapter 7, many of you faced issues while installing Zipline, on which I can agree because it is kind of outdated and \textbf{Quantopian} is merged with \textbf{Nasdaq}. Just don't get worried and follow along with me and you will be able to install it locally. Just follow these steps.
+\begin{enumerate}
+    \item Create a new conda environment with the name Zipline or type in terminal\\
+    \textcolor{red}{conda create --name Zipline}
+    \item Open your jupyter notebook create the file and copy paste these command and run them in different cells:
+    \begin{itemize} 
+    \item   \textcolor{red}{!wget 'http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz'\\
+!tar -xzf ta-lib-0.4.0-src.tar.gz\\
+\%cd ta-lib/\\
+!./configure - -prefix=/usr/\\
+!make\\
+!sudo make install\\
+\%cd /content/\\
+!pip install TA-Lib}
+\item\color{red}{!pip install zipline-reloaded}
+\item\color{red}{!pip3 install nasdaq-data-link}
+\end{itemize}
+We are done with the installation of the zipline. Now it's time to set up the API in order to fetch the data from Nasdaq because Quantopain became part of it.
+\item Go to the \href{https://data.nasdaq.com/}{Nasdaq}, Create your account and get the API key which will be in your profile section.
+\begin{itemize}
+    \item open your terminal and type:
+    \item  \color{red}{export QUANDL\_API\_KEY=YOUR NASDAQ API KEY}
+   \item  \color{red}{ zipline ingest –b quandl}
+    
+\end{itemize}
+This will download the desired bundles from NASDAQ.
+\end{enumerate}
+\end{document}
